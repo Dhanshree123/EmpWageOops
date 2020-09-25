@@ -1,6 +1,6 @@
 package com.blz.EmpWageOops;
 
-public class EmpWageBuilderArray {
+public class EmpWageBuilderArray implements IComputeEmpWage{
 	public static final int IS_PART_TIME = 1;
 	public static final int IS_FULL_TIME = 2;
 	
