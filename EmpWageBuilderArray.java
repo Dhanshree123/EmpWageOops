@@ -1,19 +1,20 @@
 package com.blz.EmpWageOops;
 
+import java.util.*;
 public class EmpWageBuilderArray implements IComputeEmpWage{
 	public static final int IS_PART_TIME = 1;
 	public static final int IS_FULL_TIME = 2;
 	
 	private int numOfCompany = 0;
-	private CompanyEmpWage[] companyEmpWageArray;
-	
+	//private CompanyEmpWage[] companyEmpWageArray;
+	private ArrayList<CompanyEmpWage> companyEmpWageArray;
 	public EmpWageBuilderArray() {
-		companyEmpWageArray = new CompanyEmpWage[5];
+		companyEmpWageArray = new ArrayList<CompanyEmpWage>();
 	}
 	
 	private void addCompanyEmpWage(String company, int empRatePerHour, int numOfWorkingDays,
             int maxHoursPerMonth ) {
-		companyEmpWageArray[numOfCompany] = new CompanyEmpWage(company,empRatePerHour,numOfWorkingDays,maxHoursPerMonth);
+		companyEmpWageArray.add(new CompanyEmpWage(company,empRatePerHour,numOfWorkingDays,maxHoursPerMonth));
 		numOfCompany++;
 	}
 
@@ -25,8 +26,8 @@ public class EmpWageBuilderArray implements IComputeEmpWage{
 	
 	public void computeEmpWage(){
 	for(int i=0; i < numOfCompany;i++){
-		companyEmpWageArray[i].setTotalEmpWage(this.computeEmpWage(companyEmpWageArray[i]));
-		System.out.println(companyEmpWageArray[i]);
+		companyEmpWageArray.get(i).setTotalEmpWage(this.computeEmpWage(companyEmpWageArray.get(i)));
+		System.out.println(companyEmpWageArray.get(i));
 	 }
 	}
 	
